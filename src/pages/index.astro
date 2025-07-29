@@ -7,12 +7,12 @@ const city = decodeURIComponent(Astro.request.headers.get('x-vercel-ip-city'))
 
 <Layout title="Astro Vercel Edge">
 	<main>
-		<h1>Hello from the <span class="text-gradient">Edge</span></h1>
+		<h1>Please wait, currently testing <span class="text-gradient">DNS</span></h1>
 		<div class="banner">
 			<p>Your city<br /><strong>{city}</strong></p>
 			<p>Your IP address<br /><strong>{ip}</strong></p>
 		</div>
-		<p class="footer">Built with <a href="https://github.com/withastro/astro">Astro</a> and <a href="https://github.com/withastro/astro/tree/main/packages/integrations/vercel">@astrojs/vercel</a> — <a href="https://github.com/JuanM04/astro-on-the-edge">Source</a></p>
+		<p class="footer">Built with <a href="https://github.com/withastro/astro">Astro</a></p>
 	</main>
 </Layout>
 
