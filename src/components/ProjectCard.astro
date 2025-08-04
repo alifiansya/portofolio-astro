@@ -1,7 +1,6 @@
 ---
-import type { array } from "astro:schema"
 import Github from "./icons/Github.astro"
-
+import BoxUpRight from "./icons/BoxUpRight.astro"
 const {
     class: className = "", 
     title = "Test", 
@@ -12,11 +11,11 @@ const {
 ---
 
 <div class={"bg-white w-md px-6 py-4 rounded-xl border-1 border-amber-400 " + className}>
-    <header class="flex flex-row justify-between mb-2 text-lg">
+    <header class="flex flex-row justify-between mb-2 text-lg items-center">
         <h1>{title}</h1>
-        <div class="flex flex-row gap-2">
-            <a href={links.prod}><Github class="w-5"/></a>
-            <a href={links.gh}><Github class="w-5"/></a>
+        <div class="flex flex-row gap-4">
+            {links.prod !== "." && (<a href={links.prod}><BoxUpRight class="w-4" /></a>)}
+            <a href={links.gh}><Github class="w-4"/></a>
         </div>
     </header>
     <p class="text-gray-500 mb-4">{details}</p>

@@ -6,6 +6,7 @@ import AboutCard from '../components/AboutCard.astro'
 import ProjectCard from '../components/ProjectCard.astro';
 
 import { GitHubIcon, LinkedInIcon, MailIcon} from '../components/icons';
+import Mail from '../components/icons/Mail.astro';
 
 const socialLinks = [
 	{ name: "GitHub", url: "https://github.com/alifiansya", icon: GitHubIcon },
@@ -18,7 +19,28 @@ const aboutMeData = [
 	{ title: "📍 Location", item: "Indonesia, West Java.", itemDetail: "Open to Remote"}
 ]
 
-const skills = ["Tensorflow", "Flask", "PostgreSQL", "Arduino & IoT", "Bun", "Astro", "Supabase", "Elysia", "Typescript", "Docker", "GCP"]
+const featuredProjects = [
+	{    
+		title: "ATongs", 
+		details: "Built as a solution to the unrecycled waste, responsible for develop and deploy the Computer Vision model",  
+		skills: ["TensorFlow", "Docker", "GCP"], 
+		links: {prod: ".", gh: "https://github.com/ATongs"}
+	},
+	{    
+		title: "IMK Futsal", 
+		details: "UI MVP for Athlete Health and fitness monitoring system with Polar Verity Sense data",  
+		skills: ["React", "TailwindCSS", "Node.js"], 
+		links: {prod: "https://imk-futsal.vercel.app", gh: "https://github.com/alifiansya/imk_verityweb"}
+	},
+	{    
+		title: "Lonely Death Monitor", 
+		details: "IoT-Based Early warnings in the elderly immobility to help prevent solitary deaths",  
+		skills: ["Arduino & IoT"], 
+		links: {prod: ".", gh: "https://github.com/syidzxy/LD-Monitoring"}
+	},
+]
+
+const skills = ["Tensorflow", "Flask", "PostgreSQL", "Arduino & IoT", "Node.js", "React", "Bun", "Astro", "Supabase", "ElysiaJS", "Typescript", "Docker", "GCP", "TailwindCSS"]
 
 const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(6rem,15vw,12rem)]";
 
@@ -48,19 +70,20 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 			</ul>
 		</section>
 		<section id="about" class={"justify-center text-center bg-amber-50 py-16 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-16">About me</h1>
+			<h1 class="text-xl font-semibold mb-12">About me</h1>
 			<div class="flex flex-col justify-center gap-16 items-stretch md:flex-row md:gap-20">
 				<article class="flex flex-col text-left text-md flex-1 items-center justify-center">
 					<p>I'm a software developer with a background in computer engineering and over a year of experience building Python-based 
-						software such as AI with TensorFlow and API Development with flask.
+						software.
 					</p>
 					<br/>
 
-					<p>After working closely with Python systems, I began shifting toward modern full-stack development
-					using the BASE stack which consist of Bun, Astro, Supabase, and ElysiaJS to build Blazingly Fast web apps.</p>
+					<p>
+						After working with Python systems, I shifted my focus to backend development using modern tools like Bun, Supabase, 
+						and ElysiaJS as part of the BASE stack, with a purpose on building blazingly fast web services and APIs, using Astro when an interface is needed.</p>
 					<br/> 
 
-					<p>I also work with cloud platforms like Google Cloud and use container technologies like Docker to deploy, scale, and manage my applications more efficiently.</p>
+					<p>I also work with cloud platforms and use container technologies to deploy, scale, and manage my applications more efficiently.</p>
 					<br/>
 
 					<p>Outside of coding, I like exploring new tools, tinkering ESP and arduinos, and reading state-of-the-art AI techs to keep me up to date to AI Advancements</p>
@@ -74,7 +97,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 			</div>
 		</section>
 		<section id="skills" class={"justify-center text-center py-16 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-16">Skills & technology</h1>
+			<h1 class="text-xl font-semibold mb-12">Skills & technology</h1>
 			<div class="flex flex-wrap gap-4 mx-20 justify-center">
 				{skills.map((skill => (
 					<span class="bg-amber-100 px-4 py-2 text-sm rounded-md transition duration-300 ease-in-out hover:scale-105 hover:rotate-2">{skill}</span>
@@ -84,16 +107,36 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 		<section id="projects" class={"justify-center py-16 bg-amber-50 " + mainPadding}>
 			<h1 class="text-xl font-semibold mb-16 text-center">Featured Projects</h1>
 			<div class="flex flex-wrap items-center justify-center gap-4">
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
+				{featuredProjects.map((project) => (
+					<ProjectCard title={project.title}, details={project.details}, skills={project.skills}, links={project.links}/>
+				))}
 			</div>
 			
 		</section>
+		<section id="contact" class={"flex flex-col justify-center items-center py-16 " + mainPadding}>
+			<h1 class="text-xl font-semibold mb-8 text-center ">Let's Work Together!</h1>	
+			<p class="text-lg text-center text-gray-600 mb-8">I'm Always interested in hearing about new opportunities <br/>and exciting projects!</p>	
+			<a href="https://linkedin.com/in/alifiansyahfkp" class="flex items-center gap-2 bg-amber-700 p-2 rounded-lg transition duration-300 ease-in-out hover:bg-amber-900">
+				<Mail class="w-4 h-4 text-white"/>
+				<span class="text-white text-sm font-semibold">Get in Touch</span>
+			</a>	
+		</section>
 	</main>
 	
-	<footer id="footer-container" class={"flex justify-center bg-amber-300 py-2 " + mainPadding}>
+	<footer id="footer-container" class={"flex justify-center bg-amber-400 py-2 " + mainPadding}>
 		<p>© 2025 Alifiansyah. Built with Astro.</p>
 	</footer>
 </Layout>
 
+<script>
+	document.querySelectorAll('a[data-scroll]').forEach(anchor => {
+	  anchor.addEventListener('click', (e) => {
+		e.preventDefault();
+		const id = anchor.getAttribute('href')?.substring(1);
+		const target = document.getElementById(id);
+		if (target) {
+		  target.scrollIntoView({ behavior: 'smooth' });
+		}
+	  });
+	});
+</script>
