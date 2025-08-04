@@ -1,9 +1,9 @@
 ---
-import MikanLogo from "../assets/logo.webp"
+const { class: className = "" } = Astro.props;
 ---
 
 
-<nav class="fixed top-0 w-full z-50 flex justify-between items-center py-4 border-b-2 bg-white border-b-gray-300 [padding-right:clamp(4rem,10vw,8rem)] [padding-left:clamp(4rem,10vw,8rem)]">
+<nav id="navbar" class={`fixed top-0 w-full z-50 flex justify-between items-center py-4 border-b-2 bg-white border-b-gray-300 transition-shadow duration-300 ${className}`}>
     <a href="." class="inline-flex items-center gap-2">
         <img src="/images/logo.webp" alt="Mikan Logo" width="32" class="bg-gray-900 rounded-lg rotate-5"/>
         <strong class="text-lg">Mikanmiru</strong>
@@ -11,11 +11,26 @@ import MikanLogo from "../assets/logo.webp"
     
     <div id="right-menu-container">
         <ul class="inline-flex gap-10">
-            <li><a href="#hello-container">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#hello">Home</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#">Skills</a></li>
             <li><a href="#">Project</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </div>
 </nav>
+
+<script>
+    const navbar = document.getElementById('navbar');
+  
+    function handleScroll() {
+      if (window.scrollY > 0) {
+        navbar.classList.add('shadow-md');
+      } else {
+        navbar.classList.remove('shadow-md');
+      }
+    }
+  
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+</script>
