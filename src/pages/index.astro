@@ -1,7 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
 import Navbar from '../components/Navbar.astro';
 import AboutCard from '../components/AboutCard.astro'
+import ProjectCard from '../components/ProjectCard.astro';
+
 import { GitHubIcon, LinkedInIcon, MailIcon} from '../components/icons';
 
 const socialLinks = [
@@ -11,9 +14,11 @@ const socialLinks = [
 
 const aboutMeData = [
 	{ title: "🎓 Education", item: "Computer Engineering, B.Eng.", itemDetail: "Brawijaya University, GPA: 3.74"},
-	{ title: "💼 Experience", item: "1+ Years", itemDetail: "AI & Python GUI"},
+	{ title: "💼 Experience", item: "1+ Years", itemDetail: "AI & API Development"},
 	{ title: "📍 Location", item: "Indonesia, West Java.", itemDetail: "Open to Remote"}
 ]
+
+const skills = ["Tensorflow", "Flask", "PostgreSQL", "Arduino & IoT", "Bun", "Astro", "Supabase", "Elysia", "Typescript", "Docker", "GCP"]
 
 const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(6rem,15vw,12rem)]";
 
@@ -34,7 +39,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 			<ul class="flex justify-center gap-4">
 				{socialLinks.map((link) => (
 					<li>
-						<a href={link.url} class="flex items-center gap-2 bg-gray-900 p-2 rounded-lg">
+						<a href={link.url} class="flex items-center gap-2 bg-amber-700 p-2 rounded-lg transition duration-300 ease-in-out hover:bg-amber-900">
 							<link.icon class="w-4 h-4 text-white"/>
 							<span class="text-white text-sm font-semibold">{link.name}</span>
 						</a>
@@ -46,26 +51,48 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 			<h1 class="text-xl font-semibold mb-16">About me</h1>
 			<div class="flex flex-col justify-center gap-16 items-stretch md:flex-row md:gap-20">
 				<article class="flex flex-col text-left text-md flex-1 items-center justify-center">
-					<p>I'm a software developer with a background in computer engineering and over a year of experience building Python-based software.</p>
+					<p>I'm a software developer with a background in computer engineering and over a year of experience building Python-based 
+						software such as AI with TensorFlow and API Development with flask.
+					</p>
 					<br/>
 
-					<p>After working closely with Python systems, I began shifting toward modern full-stack development 
+					<p>After working closely with Python systems, I began shifting toward modern full-stack development
 					using the BASE stack which consist of Bun, Astro, Supabase, and ElysiaJS to build Blazingly Fast web apps.</p>
 					<br/> 
 
-					<p>Outside of coding, I like exploring new tools, tinkering ESP and arduinos, and implementing state-of-the-art technology to my personal project</p>
+					<p>I also work with cloud platforms like Google Cloud and use container technologies like Docker to deploy, scale, and manage my applications more efficiently.</p>
+					<br/>
+
+					<p>Outside of coding, I like exploring new tools, tinkering ESP and arduinos, and reading state-of-the-art AI techs to keep me up to date to AI Advancements</p>
 				</article>
 				<div class="flex flex-col flex-1 gap-6">
 					{aboutMeData.map((el) => (
 						// console.log(el)
-						<AboutCard data={el} class="bg-white w-full text-left px-8 py-6 rounded-xl border-1 border-gray-300"/>
+						<AboutCard data={el} class="bg-white w-full text-left px-8 py-6 rounded-xl border-1 border-amber-300"/>
 					))}
 				</div>
 			</div>
 		</section>
+		<section id="skills" class={"justify-center text-center py-16 " + mainPadding}>
+			<h1 class="text-xl font-semibold mb-16">Skills & technology</h1>
+			<div class="flex flex-wrap gap-4 mx-20 justify-center">
+				{skills.map((skill => (
+					<span class="bg-amber-100 px-4 py-2 text-sm rounded-md transition duration-300 ease-in-out hover:scale-105 hover:rotate-2">{skill}</span>
+				)))}
+			</div>
+		</section>
+		<section id="projects" class={"justify-center py-16 bg-amber-50 " + mainPadding}>
+			<h1 class="text-xl font-semibold mb-16 text-center">Featured Projects</h1>
+			<div class="flex flex-wrap items-center justify-center gap-4">
+				<ProjectCard />
+				<ProjectCard />
+				<ProjectCard />
+			</div>
+			
+		</section>
 	</main>
 	
-	<footer id="footer-container" class={"flex justify-center bg-amber-300 " + mainPadding}>
+	<footer id="footer-container" class={"flex justify-center bg-amber-300 py-2 " + mainPadding}>
 		<p>© 2025 Alifiansyah. Built with Astro.</p>
 	</footer>
 </Layout>

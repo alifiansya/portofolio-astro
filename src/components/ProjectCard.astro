@@ -1,0 +1,28 @@
+---
+import type { array } from "astro:schema"
+import Github from "./icons/Github.astro"
+
+const {
+    class: className = "", 
+    title = "Test", 
+    details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ", 
+    skills = ["test", "test", "teaaast"],
+    links = {prod: ".", gh: "https://github.com"}
+} = Astro.props
+---
+
+<div class={"bg-white w-md px-6 py-4 rounded-xl border-1 border-amber-400 " + className}>
+    <header class="flex flex-row justify-between mb-2 text-lg">
+        <h1>{title}</h1>
+        <div class="flex flex-row gap-2">
+            <a href={links.prod}><Github class="w-5"/></a>
+            <a href={links.gh}><Github class="w-5"/></a>
+        </div>
+    </header>
+    <p class="text-gray-500 mb-4">{details}</p>
+    <ul class="flex flex-row gap-2">
+        {skills.map((skill: String) => (
+            <li class="bg-amber-50 px-3 py-1 rounded-xl border-1 border-amber-400 text-sm">{skill}</li>
+        ))}
+    </ul>
+</div>
