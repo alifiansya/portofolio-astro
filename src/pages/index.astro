@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import AboutCard from '../components/AboutCard.astro'
 import ProjectCard from '../components/ProjectCard.astro';
+import ChatBubble from '../components/ChatBubble.astro';
 
 import { GitHubIcon, LinkedInIcon, MailIcon} from '../components/icons';
 import Mail from '../components/icons/Mail.astro';
@@ -123,12 +124,71 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 		</section>
 	</main>
 	
-	<footer id="footer-container" class={"flex justify-center bg-amber-400 py-2 " + mainPadding}>
+	<footer id="footer-container" class={"flex justify-center text-center bg-amber-400 py-2 " + mainPadding}>
 		<p>© 2025 Alifiansyah. Built with Astro.</p>
 	</footer>
+	<div class="fixed bottom-6 right-6" client:load>
+		<button id="chat-toggle" class="fixed bottom-6 right-6 p-4 rounded-full bg-amber-700 transition duration-300 ease-in-out hover:bg-amber-900" onclick="">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 text-white">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+			</svg> 
+		</button>
+		<div id="chat-box" class="flex flex-col bg-amber-100 w-80 h-96 mb-20 border-amber-900 rounded-xl shadow">
+			<div class="flex flex-row bg-amber-300 rounded-t-xl border-b-2 border-b-amber-50 px-4 py-3 gap-2">
+				<img src="/images/logo.webp" alt="Mikan Logo" class="bg-gray-900 rounded-full rotate-5 w-12 border-2 border-amber-100"/>
+				<div>
+					<h1 class="text-lg font-bold">MikanAI</h1>
+					<p class="text-sm">Powered by gemini</p>
+				</div>
+			</div>
+			<div id="chat-bubble" class="flex flex-col bg-gradient-to-b from-amber-50 to-white overflow-y-auto flex-1 px-4 py-2 gap-2">
+				
+				<div id="container" class=`flex items-start gap-2.5 text-gray-900` >
+					<div class="flex flex-col max-w-[320px] p-3 border-gray-200 bg-amber-200 rounded-xl rounded-tl-none">
+					<p class="text-sm font-normal">Hello! I'm MikanAI, here to provide information about Alifiansyah. What would you like to know today?</p>
+					</div>
+				</div>
+				
+			</div>
+			<div class="flex flex-row bg-amber-100 rounded-b-xl p-2 gap-2">
+				<input id="user-prompt" type="text" placeholder="Who is Alifiansyah?" class="bg-white border border-amber-300 rounded-2xl px-4 py-2 flex-1">
+				<button id="submit-user-prompt" class="bg-amber-500 px-2 rounded-xl transition duration-300 ease-in-out hover:bg-amber-700">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 text-white">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+					  </svg>					  
+				</button>
+			</div>
+
+		</div>
+	</div>
+
 </Layout>
 
 <script>
+	let chatHistory = ["MikanAI: Hello! I'm MikanAI, here to provide information about Alifiansyah. What would you like to know today?"];
+	let chatCounter = 0;
+	const chatToggleButton = document.getElementById("chat-toggle");
+	const chatBoxContainer = document.getElementById("chat-box");
+
+	const chatBubbleContainer = document.getElementById("chat-bubble");
+	const promptTextBox = document.getElementById("user-prompt") as HTMLInputElement;
+	const promptSubmitButton = document.getElementById("submit-user-prompt");
+
+	promptSubmitButton?.addEventListener("click", () => {
+		submitPrompt();
+	})
+
+	chatToggleButton?.addEventListener("click", () => {
+		chatBoxContainer?.classList.toggle("hidden");
+	})
+
+	promptTextBox.addEventListener('keydown', function(event) {
+		if (event.key === 'Enter') {
+			event.preventDefault(); 
+			submitPrompt();
+		}
+	});
+	
 	document.querySelectorAll('a[data-scroll]').forEach(anchor => {
 	  anchor.addEventListener('click', (e) => {
 		e.preventDefault();
@@ -139,4 +199,57 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 		}
 	  });
 	});
+
+	function createChatBubble(text:string, sender = "user", counter:number) {
+		const chatBubble = document.createElement("div");
+		chatBubble.id = `${sender}-bubble-${counter}`;
+		chatBubble.className = `flex items-start gap-2.5 text-gray-900 ${sender === "user" ? "justify-end" : ""}`;
+
+		// Inner wrapper
+		const inner = document.createElement("div");
+		inner.className =
+			sender === "user"
+			? "flex flex-col max-w-[320px] p-3 border-gray-200 bg-blue-100 rounded-xl rounded-tr-none"
+			: "flex flex-col max-w-[320px] p-3 border-gray-200 bg-amber-200 rounded-xl rounded-tl-none";
+
+		// Paragraph
+		const p = document.createElement("p");
+		p.className = "text-sm font-normal break-words";
+		p.textContent = text;
+
+		// Assemble hierarchy
+		inner.appendChild(p);
+		chatBubble.appendChild(inner);
+
+		return chatBubble;
+	}
+
+	function submitPrompt() {
+		const userPrompt = promptTextBox.value.trim();
+		if (!userPrompt) return;
+		promptTextBox.value = "";
+
+		// Create container
+		const userChatBubble = createChatBubble(userPrompt, "user", chatCounter);
+		chatBubbleContainer?.appendChild(userChatBubble);
+		(async () => {
+			const botResponse = await sendMessage(userPrompt);
+			const botChatBubble = createChatBubble(botResponse.reply, "bot", chatCounter);
+			chatHistory.push("user:" + userPrompt);
+			chatHistory.push("MikanAI:" + botResponse.reply);
+			chatCounter += 1;
+			chatBubbleContainer?.appendChild(botChatBubble);
+		})();
+	}
+
+	async function sendMessage(msg:string) {
+		const res = await fetch("/api/chatbot", {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({ message: msg, history: chatHistory, counter: chatCounter }),
+		});
+
+		const data = await res.json();
+		return data;
+	}
 </script>
