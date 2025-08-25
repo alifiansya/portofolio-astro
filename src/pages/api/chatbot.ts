@@ -1,17 +1,16 @@
 import type { APIRoute } from "astro";
-import fs from "fs";
-import path from "path";
+
 
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
     try {
         // CV For LLM Data Feed
-        const cvPath = path.resolve(process.cwd(), "cv.txt");
-        const cvText = fs.readFileSync(cvPath, "utf-8");
+        console.log(process.env.CV_TEXT);
+        const cvText = (process.env.CV_TEXT ?? "").replace(/\\n/g, "\n");
         const { message, history, counter } = await request.json();
 
-        const apiKey = import.meta.env.GEMINI_API_KEY;
+        const apiKey = process.env.GEMINI_API_KEY;
         const botPrompt = `    
         ${cvText}
         chat history: {${history}}
