@@ -44,9 +44,6 @@ const featuredProjects = [
 const skills = ["Tensorflow", "Flask", "PostgreSQL", "Arduino & IoT", "Node.js", "React", "Bun", "Astro", "Supabase", "ElysiaJS", "Typescript", "Docker", "GCP", "TailwindCSS"]
 
 const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(6rem,15vw,12rem)]";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
@@ -91,7 +88,6 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 				</article>
 				<div class="flex flex-col flex-1 gap-6">
 					{aboutMeData.map((el) => (
-						// console.log(el)
 						<AboutCard data={el} class="bg-white w-full text-left px-8 py-6 rounded-xl border-1 border-amber-300"/>
 					))}
 				</div>
