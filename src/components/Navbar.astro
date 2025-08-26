@@ -9,7 +9,7 @@ const { class: className = "" } = Astro.props;
         <strong class="text-lg">Mikanmiru</strong>
     </a>
     
-    <div id="right-menu-container">
+    <div id="right-menu-container" class="hidden md:inline">
         <ul class="inline-flex gap-10">
             <li><a href="#hello" data-scroll>Home</a></li>
             <li><a href="#about" data-scroll>About</a></li>
@@ -17,6 +17,25 @@ const { class: className = "" } = Astro.props;
             <li><a href="#projects" data-scroll>Project</a></li>
             <li><a href="#contact" data-scroll>Contact</a></li>
         </ul>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden">
+      <!-- Hamburger button -->
+        <button id="menu-btn" class="p-2 border rounded">
+          ☰
+        </button>
+
+        <!-- Dropdown links (hidden by default) -->
+        <div id="mobile-menu" class="hidden mt-2">
+            <ul class="flex flex-col gap-4">
+                <li><a href="#hello" data-scroll>Home</a></li>
+                <li><a href="#about" data-scroll>About</a></li>
+                <li><a href="#skills" data-scroll>Skills</a></li>
+                <li><a href="#projects" data-scroll>Project</a></li>
+                <li><a href="#contact" data-scroll>Contact</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -33,4 +52,11 @@ const { class: className = "" } = Astro.props;
   
     window.addEventListener('scroll', handleScroll);
     handleScroll();
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
 </script>
