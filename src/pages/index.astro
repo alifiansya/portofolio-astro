@@ -122,6 +122,8 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 	<footer id="footer-container" class={"flex justify-center text-center bg-amber-400 py-2 " + mainPadding}>
 		<p>© 2025 Alifiansyah. Built with Astro.</p>
 	</footer>
+
+	<!-- Chatbot Section -->
 	<div class="fixed bottom-6 right-6" client:load>
 		<button id="chat-toggle" class="fixed bottom-6 right-6 p-4 rounded-full bg-amber-700 transition duration-300 ease-in-out hover:bg-amber-900" onclick="">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 text-white">
@@ -133,7 +135,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 				<img src="/images/logo.webp" alt="Mikan Logo" class="bg-gray-900 rounded-full rotate-5 w-12 border-2 border-amber-100"/>
 				<div>
 					<h1 class="text-lg font-bold">MikanAI</h1>
-					<p class="text-sm">Powered by gemini</p>
+					<p class="text-sm">Powered by Gemini</p>
 				</div>
 			</div>
 			<div id="chat-bubble" class="flex flex-col bg-gradient-to-b from-amber-50 to-white overflow-y-auto flex-1 px-4 py-2 gap-2">
@@ -146,7 +148,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 				
 			</div>
 			<div class="flex flex-row bg-amber-100 rounded-b-xl p-2 gap-2">
-				<input id="user-prompt" type="text" placeholder="Who is Alifiansyah?" class="bg-white border border-amber-300 rounded-2xl px-4 py-2 flex-1">
+				<input id="user-prompt" type="text" placeholder="Ask MikanAI!" class="bg-white border border-amber-300 rounded-2xl px-4 py-2 flex-1">
 				<button id="submit-user-prompt" class="bg-amber-500 px-2 rounded-xl transition duration-300 ease-in-out hover:bg-amber-700">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 text-white">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
