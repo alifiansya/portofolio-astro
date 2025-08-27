@@ -39,7 +39,6 @@ export const POST: APIRoute = async ({ request }) => {
         })    
         const botResponse = await response.json()
         const botText = botResponse.candidates[0].content.parts[0].text
-        console.log(botText)
     
         return new Response(
             JSON.stringify({ reply: `${botText}` }),
