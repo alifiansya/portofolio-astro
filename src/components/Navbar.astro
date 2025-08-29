@@ -1,5 +1,5 @@
 ---
-const { class: className = "" } = Astro.props;
+const { class: className = "", linkItems = [] } = Astro.props;
 ---
 
 
@@ -11,11 +11,7 @@ const { class: className = "" } = Astro.props;
     
     <div id="right-menu-container" class="hidden md:inline">
         <ul class="inline-flex gap-10">
-            <li><a href="#hello" data-scroll>Home</a></li>
-            <li><a href="#about" data-scroll>About</a></li>
-            <li><a href="#skills" data-scroll>Skills</a></li>
-            <li><a href="#projects" data-scroll>Project</a></li>
-            <li><a href="#contact" data-scroll>Contact</a></li>
+            {linkItems.map((item:string) => <li><a href={`#${item.toLowerCase()}`} data-scroll>{item}</a></li>)}
         </ul>
     </div>
 
@@ -29,11 +25,7 @@ const { class: className = "" } = Astro.props;
         <!-- Dropdown links (hidden by default) -->
         <div id="mobile-menu" class="hidden mt-2">
             <ul class="flex flex-col gap-4">
-                <li><a href="#hello" data-scroll>Home</a></li>
-                <li><a href="#about" data-scroll>About</a></li>
-                <li><a href="#skills" data-scroll>Skills</a></li>
-                <li><a href="#projects" data-scroll>Project</a></li>
-                <li><a href="#contact" data-scroll>Contact</a></li>
+                {linkItems.map((item:string) => <li><a href={`#${item.toLowerCase()}`} data-scroll>{item}</a></li>)}
             </ul>
         </div>
     </div>

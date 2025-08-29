@@ -8,6 +8,8 @@ import ProjectCard from '../components/ProjectCard.astro';
 import { GitHubIcon, LinkedInIcon, MailIcon} from '../components/icons';
 import Mail from '../components/icons/Mail.astro';
 
+const navbarItems = ["Home", "About", "Skills", "Projects", "Contact"]
+
 const socialLinks = [
 	{ name: "GitHub", url: "https://github.com/alifiansya", icon: GitHubIcon },
 	{ name: "LinkedIn", url: "https://linkedin.com/in/alifiansyahfkp", icon: LinkedInIcon },
@@ -46,9 +48,9 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 ---
 
 <Layout>
-	<Navbar class={mainPadding + " fixed top-0 w-full bg-white transition-shadow duration-300 "}/>
+	<Navbar class={mainPadding + " fixed top-0 w-full bg-white transition-shadow duration-300 "}, linkItems={navbarItems}/>
 	<main>
-		<section id="hello" class={"flex flex-col item-center justify-center h-screen text-center " + mainPadding}}>
+		<section id="home" class={"flex flex-col item-center justify-center h-screen text-center " + mainPadding}}>
 			<img src="/images/logo.webp" alt="Mikan Logo" width="156" class="bg-gradient-to-tl from-gray-500 to-black rounded-4xl rotate-5 self-center transition duration-300 ease-in-out hover:scale-105"/>
 			<h1 class="text-xl font-semibold mb-4 mt-8">Hi, I'm Alifiansyah!</h1>
 			<p class="text-gray-500 mb-8 max-w-xl mx-auto">
