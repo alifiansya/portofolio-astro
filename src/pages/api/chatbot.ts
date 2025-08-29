@@ -34,7 +34,7 @@ export const POST: APIRoute = async ({ request }) => {
               }),
             headers: {
                 "Content-Type": "application/json",
-                "X-goog-api-key": apiKey
+                "X-goog-api-key": apiKey ?? ""
             }
         })    
         const botResponse = await response.json()

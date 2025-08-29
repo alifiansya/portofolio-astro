@@ -32,7 +32,7 @@ const { class: className = "", linkItems = [] } = Astro.props;
 </nav>
 
 <script>
-    const navbar = document.getElementById('navbar');
+    const navbar = document.getElementById('navbar')!;
   
     function handleScroll() {
       if (window.scrollY > 0) {
@@ -45,8 +45,8 @@ const { class: className = "", linkItems = [] } = Astro.props;
     window.addEventListener('scroll', handleScroll);
     handleScroll();
 
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
+    const menuBtn = document.getElementById("menu-btn")!;
+    const mobileMenu = document.getElementById("mobile-menu")!;
 
     menuBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
