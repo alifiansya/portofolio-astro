@@ -9,6 +9,7 @@ import en from '../locales/en.json';
 
 import { GitHubIcon, LinkedInIcon} from '../components/icons';
 import Mail from '../components/icons/Mail.astro';
+import LocaleRedirect from '../components/LocaleRedirect.astro';
 
 const socialLinks = [
 	{ name: "GitHub", url: "https://github.com/alifiansya", icon: GitHubIcon },
@@ -210,3 +211,5 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 		return data;
 	}
 </script>
+<LocaleRedirect/>
+
