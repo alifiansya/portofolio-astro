@@ -1,14 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 
-import Navbar from '../components/Navbar.astro';
-import AboutCard from '../components/AboutCard.astro'
-import ProjectCard from '../components/ProjectCard.astro';
+import Navbar from '../../components/Navbar.astro';
+import AboutCard from '../../components/AboutCard.astro'
+import ProjectCard from '../../components/ProjectCard.astro';
 
-import en from '../locales/en.json';
+import id from '../../locales/id.json';
 
-import { GitHubIcon, LinkedInIcon} from '../components/icons';
-import Mail from '../components/icons/Mail.astro';
+import { GitHubIcon, LinkedInIcon} from '../../components/icons';
+import Mail from '../../components/icons/Mail.astro';
 
 const socialLinks = [
 	{ name: "GitHub", url: "https://github.com/alifiansya", icon: GitHubIcon },
@@ -19,12 +19,12 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 ---
 
 <Layout>
-	<Navbar class={mainPadding + " fixed top-0 w-full bg-white transition-shadow duration-300 "}, linkItems={en.navbarItems}/>
+	<Navbar class={mainPadding + " fixed top-0 w-full bg-white transition-shadow duration-300 "}, linkItems={id.navbarItems}/>
 	<main>
-		<section id="home" class={"flex flex-col item-center justify-center h-screen text-center " + mainPadding}>
+		<section id="beranda" class={"flex flex-col item-center justify-center h-screen text-center " + mainPadding}>
 			<img src="/images/logo.webp" alt="Mikan Logo" width="156" class="bg-gradient-to-tl from-gray-500 to-black rounded-4xl rotate-5 self-center transition duration-300 ease-in-out hover:scale-105"/>
-			<h1 class="text-xl font-semibold mb-4 mt-8">{en.home.name}</h1>
-			<p class="text-gray-500 mb-8 max-w-xl mx-auto">{en.home.description.text}</p>
+			<h1 class="text-xl font-semibold mb-4 mt-8">{id.home.name}</h1>
+			<p class="text-gray-500 mb-8 max-w-xl mx-auto">{id.home.description.text}</p>
 			<ul class="flex justify-center gap-4">
 				{socialLinks.map((link) => (
 					<li>
@@ -36,54 +36,54 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 				))}
 			</ul>
 		</section>
-		<section id="about" class={"justify-center text-center bg-amber-50 py-16 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-12">{en.about.name}</h1>
+		<section id="tentang" class={"justify-center text-center bg-amber-50 py-16 " + mainPadding}>
+			<h1 class="text-xl font-semibold mb-12">{id.about.name}</h1>
 			<div class="flex flex-col justify-center gap-16 items-stretch md:flex-row md:gap-20">
 				<article class="flex flex-col text-left text-md flex-1 items-center justify-center">
-					<p>{en.about.description.text[0]}
+					<p>{id.about.description.text[0]}
 					</p>
 					<br/>
-					<p>{en.about.description.text[1]}</p>
+					<p>{id.about.description.text[1]}</p>
 					<br/> 
-					<p>{en.about.description.text[2]}</p>
+					<p>{id.about.description.text[2]}</p>
 					<br/>
-					<p>{en.about.description.text[3]}</p>
+					<p>{id.about.description.text[3]}</p>
 				</article>
 				<div class="flex flex-col flex-1 gap-6">
-					{en.about.description.summary.map((el) => (
+					{id.about.description.summary.map((el) => (
 						<AboutCard data={el} class="bg-white w-full text-left px-8 py-6 rounded-xl border-1 border-amber-300"/>
 					))}
 				</div>
 			</div>
 		</section>
-		<section id="skills" class={"justify-center text-center py-16 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-12">{en.skills.name}</h1>
+		<section id="keahlian" class={"justify-center text-center py-16 " + mainPadding}>
+			<h1 class="text-xl font-semibold mb-12">{id.skills.name}</h1>
 			<div class="flex flex-wrap gap-x-2 gap-y-4 md:mx-20 justify-center md:gap-4">
-				{en.skills.description.items.map((skill => (
+				{id.skills.description.items.map((skill => (
 					<span class="bg-amber-100 px-4 py-2 text-sm rounded-md transition duration-300 ease-in-out hover:scale-105 hover:rotate-2">{skill.name}</span>
 				)))}
 			</div>
 		</section>
-		<section id="projects" class={"justify-center py-16 bg-amber-50 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-16 text-center">{en.projects.name}</h1>
+		<section id="proyek" class={"justify-center py-16 bg-amber-50 " + mainPadding}>
+			<h1 class="text-xl font-semibold mb-16 text-center">{id.projects.name}</h1>
 			<div class="flex flex-wrap items-center justify-center gap-4">
-				{en.projects.description.items.map((project) => (
+				{id.projects.description.items.map((project) => (
 					<ProjectCard title={project.title}, details={project.details}, skills={project.skills}, links={project.links}/>
 				))}
 			</div>
 		</section>
-		<section id="contact" class={"flex flex-col justify-center items-center py-16 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-8 text-center ">{en.cta.name}!</h1>	
-			<p class="text-lg text-center text-gray-600 mb-8">{en.cta.description.information}</p>	
+		<section id="kontak" class={"flex flex-col justify-center items-center py-16 " + mainPadding}>
+			<h1 class="text-xl font-semibold mb-8 text-center ">{id.cta.name}!</h1>	
+			<p class="text-lg text-center text-gray-600 mb-8">{id.cta.description.information}</p>	
 			<a href="https://linkedin.com/in/alifiansyahfkp" class="flex items-center gap-2 bg-amber-700 p-2 rounded-lg transition duration-300 ease-in-out hover:bg-amber-900">
 				<Mail class="w-4 h-4 text-white"/>
-				<span class="text-white text-sm font-semibold">{en.cta.description.mailButton}</span>
+				<span class="text-white text-sm font-semibold">{id.cta.description.mailButton}</span>
 			</a>	
 		</section>
 	</main>
 	
 	<footer id="footer-container" class={"flex justify-center text-center bg-amber-400 py-2 " + mainPadding}>
-		<p>{en.footer}</p>
+		<p>{id.footer}</p>
 	</footer>
 
 	<!-- Chatbot Section -->
@@ -97,15 +97,15 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 			<div class="flex flex-row bg-amber-300 rounded-t-xl border-b-2 border-b-amber-50 px-4 py-3 gap-2">
 				<img src="/images/logo.webp" alt="Mikan Logo" class="bg-gray-900 rounded-full rotate-5 w-12 border-2 border-amber-100"/>
 				<div>
-					<h1 class="text-lg font-bold">{en.bot.name}</h1>
-					<p class="text-sm">{en.bot.description.information}</p>
+					<h1 class="text-lg font-bold">{id.bot.name}</h1>
+					<p class="text-sm">{id.bot.description.information}</p>
 				</div>
 			</div>
 			<div id="chat-bubble" class="flex flex-col bg-gradient-to-b from-amber-50 to-white overflow-y-auto flex-1 px-4 py-2 gap-2">
 				
 				<div id="container" class=`flex items-start gap-2.5 text-gray-900` >
 					<div class="flex flex-col max-w-[320px] p-3 border-gray-200 bg-amber-200 rounded-xl rounded-tl-none">
-					<p id="chat-opener" class="text-sm font-normal">{en.bot.description.chatOpener}</p>
+					<p id="chat-opener" class="text-sm font-normal">{id.bot.description.chatOpener}</p>
 					</div>
 				</div>
 			</div>

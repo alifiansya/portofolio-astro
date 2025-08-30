@@ -1,0 +1,87 @@
+{
+    "navbarItems": ["Beranda", "Tentang", "Keahlian", "Proyek", "Kontak"],
+    "home": {
+        "name": "Hai, saya Alifiansyah!",
+        "description": {
+            "text": "Pengembang perangkat lunak dengan passion di AI & sistem backend dan akan menciptakan pengalaman web yang sangat cepat menggunakan teknologi BASE terbaru"
+        }
+    },
+    "about": {
+        "name": "Tentang saya",
+        "description": {
+            "text": [
+                "Saya seorang pengembang perangkat lunak dengan latar belakang teknik komputer dan lebih dari satu tahun pengalaman membangun perangkat lunak berbasis Python.",
+                "Setelah bekerja dengan sistem Python, saya beralih fokus ke pengembangan backend menggunakan alat modern seperti Bun, Supabase, dan ElysiaJS sebagai bagian dari stack BASE, dengan tujuan membangun layanan web dan API yang sangat cepat, menggunakan Astro jika diperlukan antarmuka.",
+                "Saya juga bekerja dengan platform cloud dan menggunakan teknologi container untuk menyebarkan, menskalakan, dan mengelola aplikasi saya secara lebih efisien.",
+                "Di luar coding, saya suka mengeksplorasi alat baru, mengutak-atik ESP dan Arduino, serta membaca teknologi AI terkini untuk tetap mengikuti perkembangan AI."
+            ],
+            "summary": [
+                { "title": "🎓 Pendidikan", "item": "Teknik Komputer, S.Eng.", "itemDetail": "Universitas Brawijaya, IPK: 3.74" },
+                { "title": "💼 Pengalaman", "item": "1+ Tahun", "itemDetail": "Pengembangan AI & API" },
+                { "title": "📍 Lokasi", "item": "Indonesia, Jawa Barat", "itemDetail": "Terbuka untuk Remote" }
+            ]
+        }
+    },
+    "skills": {
+        "name": "Keahlian & Teknologi",
+        "description": {
+            "items": [
+                {"name": "Tensorflow", "category": "AI"},
+                {"name": "Flask", "category": "Backend"},
+                {"name": "PostgreSQL", "category": "Database"},
+                {"name": "Arduino & IoT", "category": "IoT"},
+                {"name": "Node.js", "category": "Backend"},
+                {"name": "React", "category": "Frontend"},
+                {"name": "Bun", "category": "Backend"},
+                {"name": "Astro", "category": "Frontend"},
+                {"name": "Supabase", "category": "Database"}, 
+                {"name": "ElysiaJS", "category": "Backend"}, 
+                {"name": "Typescript", "category": "Backend"}, 
+                {"name": "Docker", "category": "Backend"}, 
+                {"name": "GCP", "category": "Backend"}, 
+                {"name": "TailwindCSS", "category": "Frontend"}
+            ]
+        }
+    },
+    "projects": {
+        "name": "Proyek Unggulan",
+        "description": {
+            "items": [
+                {    
+                    "title": "ATongs", 
+                    "details": "Dibuat sebagai solusi untuk sampah yang tidak didaur ulang, bertanggung jawab dalam pengembangan dan penyebaran model Computer Vision",  
+                    "skills": ["TensorFlow", "Docker", "GCP"], 
+                    "links": {"live": ".", "github": "https://github.com/ATongs"}
+                },
+                {    
+                    "title": "IMK Futsal", 
+                    "details": "UI MVP untuk sistem pemantauan kesehatan dan kebugaran atlet menggunakan data Polar Verity Sense",  
+                    "skills": ["React", "TailwindCSS", "Node.js"], 
+                    "links": {"live": "https://imk-futsal.vercel.app", "github": "https://github.com/alifiansya/imk_verityweb"}
+                },
+                {    
+                    "title": "Lonely Death Monitor", 
+                    "details": "Peringatan dini berbasis IoT untuk membantu mencegah kematian sendirian pada lansia",  
+                    "skills": ["Arduino & IoT"], 
+                    "links": {"live": ".", "github": "https://github.com/syidzxy/LD-Monitoring"}
+                }
+            ]
+        }
+    },
+    "cta": {
+        "name": "Mari Bekerja Sama!",
+        "description": {
+            "information": "Saya selalu tertarik mendengar tentang peluang baru dan proyek menarik!",
+            "mailButton": "Hubungi Saya"
+        }       
+    },
+    "footer": "© 2025 Alifiansyah. Dibangun dengan Astro.",
+    "bot": {
+        "name": "MikanAI",
+        "description": 
+        {
+            "information": "Didukung oleh Gemini",
+            "chatOpener": "Halo! Saya MikanAI, di sini untuk memberikan informasi tentang Alifiansyah. Apa yang ingin Anda ketahui hari ini?"
+        }
+    }
+}
