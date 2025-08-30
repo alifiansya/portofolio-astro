@@ -1,0 +1,87 @@
+{
+    "navbarItems": ["Home", "About", "Skills", "Projects", "Contact"],
+    "home": {
+        "name": "Hi, I'm Alifiansyah!",
+        "description": {
+            "text": "Software developer with passion in AI & backend systems and will create blazingly fast web experiences with the bleeding edge BASE tech stack"
+        }
+    },
+    "about": {
+        "name": "About me",
+        "description": {
+            "text": [
+                    "I'm a software developer with a background in computer engineering and over a year of experience building Python-based software.",
+                    "After working with Python systems, I shifted my focus to backend development using modern tools like Bun, Supabase, and ElysiaJS as part of the BASE stack, with a purpose on building blazingly fast web services and APIs, using Astro when an interface is needed.",
+                    "I also work with cloud platforms and use container technologies to deploy, scale, and manage my applications more efficiently.",
+                    "Outside of coding, I like exploring new tools, tinkering ESP and arduinos, and reading state-of-the-art AI techs to keep me up to date to AI Advancements"
+            ],
+            "summary": [
+                { "title": "🎓 Education", "item": "Computer Engineering, B.Eng.", "itemDetail": "Brawijaya University, GPA: 3.74"},
+                { "title": "💼 Experience", "item": "1+ Years", "itemDetail": "AI & API Development"},
+                { "title": "📍 Location", "item": "Indonesia, West Java.", "itemDetail": "Open to Remote"}
+            ]
+        }
+    },
+    "skills": {
+        "name": "Skills & technology",
+        "description": {
+            "items": [
+                {"name": "Tensorflow", "category": "AI"},
+                {"name": "Flask", "category": "Backend"},
+                {"name": "PostgreSQL", "category": "Database"},
+                {"name": "Arduino & IoT", "category": "IoT"},
+                {"name": "Node.js", "category": "Backend"},
+                {"name": "React", "category": "Frontend"},
+                {"name": "Bun", "category": "Backend"},
+                {"name": "Astro", "category": "Frontend"},
+                {"name": "Supabase", "category": "Database"}, 
+                {"name": "ElysiaJS", "category": "Backend"}, 
+                {"name": "Typescript", "category": "Backend"}, 
+                {"name": "Docker", "category": "Backend"}, 
+                {"name": "GCP", "category": "Backend"}, 
+                {"name": "TailwindCSS", "category": "Frontend"}
+                ]
+        }
+    },
+    "projects": {
+        "name": "Featured Projects",
+        "description": {
+            "items": [
+                {    
+                    "title": "ATongs", 
+                    "details": "Built as a solution to the unrecycled waste, responsible for develop and deploy the Computer Vision model",  
+                    "skills": ["TensorFlow", "Docker", "GCP"], 
+                    "links": {"live": ".", "github": "https://github.com/ATongs"}
+                },
+                {    
+                    "title": "IMK Futsal", 
+                    "details": "UI MVP for Athlete Health and fitness monitoring system with Polar Verity Sense data",  
+                    "skills": ["React", "TailwindCSS", "Node.js"], 
+                    "links": {"live": "https://imk-futsal.vercel.app", "github": "https://github.com/alifiansya/imk_verityweb"}
+                },
+                {    
+                    "title": "Lonely Death Monitor", 
+                    "details": "IoT-Based Early warnings in the elderly immobility to help prevent solitary deaths",  
+                    "skills": ["Arduino & IoT"], 
+                    "links": {"live": ".", "github": "https://github.com/syidzxy/LD-Monitoring"}
+                }
+            ]
+        }
+    },
+    "cta": {
+        "name": "Let's Work Together!",
+        "description": {
+            "information": "I'm Always interested in hearing about new opportunities and exciting projects!",
+            "mailButton": "Get in Touch"
+        }       
+    },
+    "footer": "© 2025 Alifiansyah. Built with Astro.",
+    "bot": {
+        "name": "MikanAI",
+        "description": 
+        {
+            "information": "Powered by Gemini",
+            "chatOpener": "Hello! I'm MikanAI, here to provide information about Alifiansyah. What would you like to know today?"
+        }
+    }
+}

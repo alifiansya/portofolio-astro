@@ -5,58 +5,26 @@ import Navbar from '../components/Navbar.astro';
 import AboutCard from '../components/AboutCard.astro'
 import ProjectCard from '../components/ProjectCard.astro';
 
+import en from '../locales/en.json';
+
 import { GitHubIcon, LinkedInIcon} from '../components/icons';
 import Mail from '../components/icons/Mail.astro';
-
-const navbarItems = ["Home", "About", "Skills", "Projects", "Contact"]
 
 const socialLinks = [
 	{ name: "GitHub", url: "https://github.com/alifiansya", icon: GitHubIcon },
 	{ name: "LinkedIn", url: "https://linkedin.com/in/alifiansyahfkp", icon: LinkedInIcon },
 ]
 
-const aboutMeData = [
-	{ title: "🎓 Education", item: "Computer Engineering, B.Eng.", itemDetail: "Brawijaya University, GPA: 3.74"},
-	{ title: "💼 Experience", item: "1+ Years", itemDetail: "AI & API Development"},
-	{ title: "📍 Location", item: "Indonesia, West Java.", itemDetail: "Open to Remote"}
-]
-
-const featuredProjects = [
-	{    
-		title: "ATongs", 
-		details: "Built as a solution to the unrecycled waste, responsible for develop and deploy the Computer Vision model",  
-		skills: ["TensorFlow", "Docker", "GCP"], 
-		links: {prod: ".", gh: "https://github.com/ATongs"}
-	},
-	{    
-		title: "IMK Futsal", 
-		details: "UI MVP for Athlete Health and fitness monitoring system with Polar Verity Sense data",  
-		skills: ["React", "TailwindCSS", "Node.js"], 
-		links: {prod: "https://imk-futsal.vercel.app", gh: "https://github.com/alifiansya/imk_verityweb"}
-	},
-	{    
-		title: "Lonely Death Monitor", 
-		details: "IoT-Based Early warnings in the elderly immobility to help prevent solitary deaths",  
-		skills: ["Arduino & IoT"], 
-		links: {prod: ".", gh: "https://github.com/syidzxy/LD-Monitoring"}
-	},
-]
-
-const skills = ["Tensorflow", "Flask", "PostgreSQL", "Arduino & IoT", "Node.js", "React", "Bun", "Astro", "Supabase", "ElysiaJS", "Typescript", "Docker", "GCP", "TailwindCSS"]
-
 const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(6rem,15vw,12rem)]";
 ---
 
 <Layout>
-	<Navbar class={mainPadding + " fixed top-0 w-full bg-white transition-shadow duration-300 "}, linkItems={navbarItems}/>
+	<Navbar class={mainPadding + " fixed top-0 w-full bg-white transition-shadow duration-300 "}, linkItems={en.navbarItems}/>
 	<main>
 		<section id="home" class={"flex flex-col item-center justify-center h-screen text-center " + mainPadding}>
 			<img src="/images/logo.webp" alt="Mikan Logo" width="156" class="bg-gradient-to-tl from-gray-500 to-black rounded-4xl rotate-5 self-center transition duration-300 ease-in-out hover:scale-105"/>
-			<h1 class="text-xl font-semibold mb-4 mt-8">Hi, I'm Alifiansyah!</h1>
-			<p class="text-gray-500 mb-8 max-w-xl mx-auto">
-				Software developer with passion in AI & backend systems 
-				and will create blazingly fast web experiences with the bleeding edge BASE tech stack
-			</p>
+			<h1 class="text-xl font-semibold mb-4 mt-8">{en.home.name}</h1>
+			<p class="text-gray-500 mb-8 max-w-xl mx-auto">{en.home.description.text}</p>
 			<ul class="flex justify-center gap-4">
 				{socialLinks.map((link) => (
 					<li>
@@ -69,60 +37,53 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 			</ul>
 		</section>
 		<section id="about" class={"justify-center text-center bg-amber-50 py-16 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-12">About me</h1>
+			<h1 class="text-xl font-semibold mb-12">{en.about.name}</h1>
 			<div class="flex flex-col justify-center gap-16 items-stretch md:flex-row md:gap-20">
 				<article class="flex flex-col text-left text-md flex-1 items-center justify-center">
-					<p>I'm a software developer with a background in computer engineering and over a year of experience building Python-based 
-						software.
+					<p>{en.about.description.text[0]}
 					</p>
 					<br/>
-
-					<p>
-						After working with Python systems, I shifted my focus to backend development using modern tools like Bun, Supabase, 
-						and ElysiaJS as part of the BASE stack, with a purpose on building blazingly fast web services and APIs, using Astro when an interface is needed.</p>
+					<p>{en.about.description.text[1]}</p>
 					<br/> 
-
-					<p>I also work with cloud platforms and use container technologies to deploy, scale, and manage my applications more efficiently.</p>
+					<p>{en.about.description.text[2]}</p>
 					<br/>
-
-					<p>Outside of coding, I like exploring new tools, tinkering ESP and arduinos, and reading state-of-the-art AI techs to keep me up to date to AI Advancements</p>
+					<p>{en.about.description.text[3]}</p>
 				</article>
 				<div class="flex flex-col flex-1 gap-6">
-					{aboutMeData.map((el) => (
+					{en.about.description.summary.map((el) => (
 						<AboutCard data={el} class="bg-white w-full text-left px-8 py-6 rounded-xl border-1 border-amber-300"/>
 					))}
 				</div>
 			</div>
 		</section>
 		<section id="skills" class={"justify-center text-center py-16 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-12">Skills & technology</h1>
+			<h1 class="text-xl font-semibold mb-12">{en.skills.name}</h1>
 			<div class="flex flex-wrap gap-x-2 gap-y-4 md:mx-20 justify-center md:gap-4">
-				{skills.map((skill => (
-					<span class="bg-amber-100 px-4 py-2 text-sm rounded-md transition duration-300 ease-in-out hover:scale-105 hover:rotate-2">{skill}</span>
+				{en.skills.description.items.map((skill => (
+					<span class="bg-amber-100 px-4 py-2 text-sm rounded-md transition duration-300 ease-in-out hover:scale-105 hover:rotate-2">{skill.name}</span>
 				)))}
 			</div>
 		</section>
 		<section id="projects" class={"justify-center py-16 bg-amber-50 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-16 text-center">Featured Projects</h1>
+			<h1 class="text-xl font-semibold mb-16 text-center">{en.projects.name}</h1>
 			<div class="flex flex-wrap items-center justify-center gap-4">
-				{featuredProjects.map((project) => (
+				{en.projects.description.items.map((project) => (
 					<ProjectCard title={project.title}, details={project.details}, skills={project.skills}, links={project.links}/>
 				))}
 			</div>
-			
 		</section>
 		<section id="contact" class={"flex flex-col justify-center items-center py-16 " + mainPadding}>
-			<h1 class="text-xl font-semibold mb-8 text-center ">Let's Work Together!</h1>	
-			<p class="text-lg text-center text-gray-600 mb-8">I'm Always interested in hearing about new opportunities <br/>and exciting projects!</p>	
+			<h1 class="text-xl font-semibold mb-8 text-center ">{en.cta.name}!</h1>	
+			<p class="text-lg text-center text-gray-600 mb-8">{en.cta.description.information}</p>	
 			<a href="https://linkedin.com/in/alifiansyahfkp" class="flex items-center gap-2 bg-amber-700 p-2 rounded-lg transition duration-300 ease-in-out hover:bg-amber-900">
 				<Mail class="w-4 h-4 text-white"/>
-				<span class="text-white text-sm font-semibold">Get in Touch</span>
+				<span class="text-white text-sm font-semibold">{en.cta.description.mailButton}</span>
 			</a>	
 		</section>
 	</main>
 	
 	<footer id="footer-container" class={"flex justify-center text-center bg-amber-400 py-2 " + mainPadding}>
-		<p>© 2025 Alifiansyah. Built with Astro.</p>
+		<p>{en.footer}</p>
 	</footer>
 
 	<!-- Chatbot Section -->
@@ -136,18 +97,17 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 			<div class="flex flex-row bg-amber-300 rounded-t-xl border-b-2 border-b-amber-50 px-4 py-3 gap-2">
 				<img src="/images/logo.webp" alt="Mikan Logo" class="bg-gray-900 rounded-full rotate-5 w-12 border-2 border-amber-100"/>
 				<div>
-					<h1 class="text-lg font-bold">MikanAI</h1>
-					<p class="text-sm">Powered by Gemini</p>
+					<h1 class="text-lg font-bold">{en.bot.name}</h1>
+					<p class="text-sm">{en.bot.description.information}</p>
 				</div>
 			</div>
 			<div id="chat-bubble" class="flex flex-col bg-gradient-to-b from-amber-50 to-white overflow-y-auto flex-1 px-4 py-2 gap-2">
 				
 				<div id="container" class=`flex items-start gap-2.5 text-gray-900` >
 					<div class="flex flex-col max-w-[320px] p-3 border-gray-200 bg-amber-200 rounded-xl rounded-tl-none">
-					<p class="text-sm font-normal">Hello! I'm MikanAI, here to provide information about Alifiansyah. What would you like to know today?</p>
+					<p class="text-sm font-normal">{en.bot.description.chatOpener}</p>
 					</div>
 				</div>
-				
 			</div>
 			<div class="flex flex-row bg-amber-100 rounded-b-xl p-2 gap-2">
 				<input id="user-prompt" type="text" placeholder="Ask MikanAI!" class="bg-white border border-amber-300 rounded-2xl px-4 py-2 flex-1">
@@ -157,14 +117,12 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 					  </svg>					  
 				</button>
 			</div>
-
 		</div>
 	</div>
-
 </Layout>
 
 <script>
-	let chatHistory = ["MikanAI: Hello! I'm MikanAI, here to provide information about Alifiansyah. What would you like to know today?"];
+	let chatHistory = [document.getElementById("opener-chat")?.innerText];
 	let chatCounter = 0;
 	const chatToggleButton = document.getElementById("chat-toggle");
 	const chatBoxContainer = document.getElementById("chat-box");

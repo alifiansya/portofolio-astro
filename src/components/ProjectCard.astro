@@ -6,7 +6,7 @@ const {
     title = "Test", 
     details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ", 
     skills = ["test", "test", "teaaast"],
-    links = {prod: ".", gh: "https://github.com"}
+    links = {live: ".", github: "https://github.com"}
 } = Astro.props
 ---
 
@@ -14,8 +14,8 @@ const {
     <header class="flex flex-row justify-between mb-2 text-lg items-center">
         <h1>{title}</h1>
         <div class="flex flex-row gap-4">
-            {links.prod !== "." && (<a href={links.prod}><BoxUpRight class="w-4" /></a>)}
-            <a href={links.gh}><Github class="w-4"/></a>
+            {links.live !== "." && (<a href={links.live}><BoxUpRight class="w-4" /></a>)}
+            <a href={links.github}><Github class="w-4"/></a>
         </div>
     </header>
     <p class="text-gray-500 mb-4">{details}</p>
