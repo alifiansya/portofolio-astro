@@ -1,10 +1,15 @@
 <script type="module">
 	const langCode = (navigator.language || navigator.userLanguage).split('-')[0];
 	const currentPath = window.location.pathname;
-	console.log(langCode)
-	if (langCode === 'id' && currentPath !== '/id') {
-	  window.location.href = '/id';
-	} else if (langCode === 'ja' && currentPath !== '/ja') {
-	  window.location.href = '/ja';
-	} 
+	const redirected = sessionStorage.getItem('redirected'); // check if already redirected
+
+	if (!redirected) {
+		if (langCode === 'id' && currentPath !== '/id') {
+			sessionStorage.setItem('redirected', 'true');
+			window.location.href = '/id';
+		} else if (langCode === 'ja' && currentPath !== '/ja') {
+			sessionStorage.setItem('redirected', 'true');
+			window.location.href = '/ja';
+		}
+	}
 </script>
