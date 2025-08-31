@@ -1,5 +1,7 @@
 {
     "navbarItems": ["ホーム", "紹介", "スキル", "プロジェクト", "お問い合わせ"],
+    "language": "JP",
+    "languageItems": [["English", "/"], ["Indonesian", "/id"]],
     "home": {
         "name": "Alifiansyah（アリフィアンシャ) です👋",
         "description": {

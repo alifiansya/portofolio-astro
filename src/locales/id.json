@@ -1,5 +1,7 @@
 {
     "navbarItems": ["Beranda", "Tentang", "Keahlian", "Proyek", "Kontak"],
+    "language": "ID",
+    "languageItems": [["English", "/"], ["日本語", "/ja"]],
     "home": {
         "name": "Hai, saya Alifiansyah!",
         "description": {
