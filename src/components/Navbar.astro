@@ -23,7 +23,7 @@ const { class: className = "", linkItems = [], languageItems = [["loremIpsum", "
         </ul>
     </div>
     <div id="right-menu-container" class="flex-1 hidden md:flex justify-end">
-        <LanguageDropdown current={currentLanguage} items={languageItems}/>
+        <LanguageDropdown current={currentLanguage} items={languageItems} />
     </div>
 
     <!-- Mobile menu -->
@@ -63,21 +63,13 @@ const { class: className = "", linkItems = [], languageItems = [["loremIpsum", "
   
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-
+    
     const mobileButton = document.getElementById("mobile-button")!;
     const mobileMenu = document.getElementById("mobile-menu")!;
     const mobileSettings = document.getElementById("mobile-settings-container")!;
 
-    const languageButton = document.getElementById("language-button")!;
-    const languageMenu = document.getElementById("language-menu")!;
-
     mobileButton.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
         mobileSettings.classList.toggle("hidden");
-    });
-
-    
-    languageButton.addEventListener("click", () => {
-        languageMenu.classList.toggle("hidden");
     });
 </script>
