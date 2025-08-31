@@ -20,7 +20,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 ---
 
 <Layout>
-	<Navbar class={mainPadding + " fixed top-0 w-full bg-white transition-shadow duration-300 "}, linkItems={en.navbarItems}, languageItems={en.languageItems}/>
+	<Navbar class={mainPadding + " fixed top-0 w-full bg-white transition-shadow duration-300 "}, linkItems={en.navbarItems}, languageItems={en.languageItems}, currentLanguage={en.language}/>
 	<main>
 		<section id="home" class={"flex flex-col item-center justify-center h-screen text-center " + mainPadding}>
 			<img src="/images/logo.webp" alt="Mikan Logo" width="156" class="bg-gradient-to-tl from-gray-500 to-black rounded-4xl rotate-5 self-center transition duration-300 ease-in-out hover:scale-105"/>

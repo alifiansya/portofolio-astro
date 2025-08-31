@@ -1,5 +1,6 @@
 {
     "navbarItems": ["Home", "About", "Skills", "Projects", "Contact"],
+    "language": "EN",
     "languageItems": [["Indonesian", "/id"], ["Japanese", "/ja"]],
     "home": {
         "name": "Hi, I'm Alifiansyah!",
