@@ -27,16 +27,16 @@ const { class: className = "", linkItems = [], languageItems = [["loremIpsum", "
     </div>
 
     <!-- Mobile menu -->
-    <div class="lg:hidden">
+    <div class="lg:hidden flex flex-col justify-end">
       <!-- Hamburger button -->
-        <button id="mobile-button" class="p-2 border rounded">
+        <button id="mobile-button" class="p-2 border rounded ">
           ☰
         </button>
         
         <!-- Dropdown links (hidden by default) -->
         <div id="mobile-menu" class="hidden mt-2">
-            <ul class="flex flex-col gap-4">
-                {linkItems.map((item:string) => <li><a href={`#${item.toLowerCase()}`} data-scroll>{item}</a></li>)}
+            <ul class="flex flex-col gap-4 ">
+                {linkItems.map((item:string) => <li class="flex justify-end"><a href={`#${item.toLowerCase()}`} data-scroll>{item}</a></li>)}
             </ul>
         </div>
     </div>
