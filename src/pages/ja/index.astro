@@ -15,13 +15,13 @@ const socialLinks = [
 	{ name: "LinkedIn", url: "https://linkedin.com/in/alifiansyahfkp", icon: LinkedInIcon },
 ]
 
-const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(6rem,15vw,12rem)]";
+const mainPadding = "md:[padding-right:clamp(6rem,15vw,12rem)] md:[padding-left:clamp(6rem,15vw,12rem)]";
 ---
 
 <Layout>
-	<Navbar class={mainPadding + " fixed top-0 w-full bg-white transition-shadow duration-300 "}, linkItems={ja.navbarItems}, languageItems={ja.languageItems}, currentLanguage={ja.language}/>
+	<Navbar class={"fixed top-0 w-full bg-white transition-shadow duration-300 "+ mainPadding + " px-16"}, linkItems={ja.navbarItems}, languageItems={ja.languageItems}, currentLanguage={ja.language}/>
 	<main>
-		<section id="ほめ" class={"flex flex-col item-center justify-center h-screen text-center " + mainPadding}>
+		<section id="ほめ" class={"flex flex-col item-center justify-center h-screen text-center " + "px-16 " + mainPadding}>
 			<img src="/images/logo.webp" alt="Mikan Logo" width="156" class="bg-gradient-to-tl from-gray-500 to-black rounded-4xl rotate-5 self-center transition duration-300 ease-in-out hover:scale-105"/>
 			<h1 class="text-xl font-semibold mb-4 mt-8">{ja.home.name}</h1>
 			<p class="text-gray-500 mb-8 max-w-xl mx-auto">{ja.home.description.text}</p>
@@ -36,7 +36,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 				))}
 			</ul>
 		</section>
-		<section id="紹介" class={"justify-center text-center bg-amber-50 py-16 " + mainPadding}>
+		<section id="紹介" class={"justify-center text-center bg-amber-50 py-16 " + "px-16 " + mainPadding}>
 			<h1 class="text-xl font-semibold mb-12">{ja.about.name}</h1>
 			<div class="flex flex-col justify-center gap-16 items-stretch md:flex-row md:gap-20">
 				<article class="flex flex-col text-left text-md flex-1 items-center justify-center">
@@ -56,7 +56,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 				</div>
 			</div>
 		</section>
-		<section id="スキル" class={"justify-center text-center py-16 " + mainPadding}>
+		<section id="スキル" class={"justify-center text-center py-16 " + "px-16 " + mainPadding}>
 			<h1 class="text-xl font-semibold mb-12">{ja.skills.name}</h1>
 			<div class="flex flex-wrap gap-x-2 gap-y-4 md:mx-20 justify-center md:gap-4">
 				{ja.skills.description.items.map((skill => (
@@ -64,7 +64,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 				)))}
 			</div>
 		</section>
-		<section id="プロジェクト" class={"justify-center py-16 bg-amber-50 " + mainPadding}>
+		<section id="プロジェクト" class={"justify-center py-16 bg-amber-50 " + "px-16 " + mainPadding}>
 			<h1 class="text-xl font-semibold mb-16 text-center">{ja.projects.name}</h1>
 			<div class="flex flex-wrap items-center justify-center gap-4">
 				{ja.projects.description.items.map((project) => (
@@ -72,7 +72,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 				))}
 			</div>
 		</section>
-		<section id="お問い合わせ" class={"flex flex-col justify-center items-center py-16 " + mainPadding}>
+		<section id="お問い合わせ" class={"flex flex-col justify-center items-center py-16 " + "px-16 " + mainPadding}>
 			<h1 class="text-xl font-semibold mb-8 text-center ">{ja.cta.name}!</h1>	
 			<p class="text-lg text-center text-gray-600 mb-8">{ja.cta.description.information}</p>	
 			<a href="https://linkedin.com/in/alifiansyahfkp" class="flex items-center gap-2 bg-amber-700 p-2 rounded-lg transition duration-300 ease-in-out hover:bg-amber-900">
@@ -82,7 +82,7 @@ const mainPadding = "[padding-right:clamp(6rem,15vw,12rem)] [padding-left:clamp(
 		</section>
 	</main>
 	
-	<footer id="footer-container" class={"flex justify-center text-center bg-amber-400 py-2 " + mainPadding}>
+	<footer id="footer-container" class={"flex justify-center text-center bg-amber-400 py-2 " + "px-16 " + mainPadding}>
 		<p>{ja.footer}</p>
 	</footer>
 
